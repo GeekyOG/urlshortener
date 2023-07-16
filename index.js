@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
@@ -17,7 +18,7 @@ app.post("/api/", async (req, res) => {
     url: "https://url-shortener-service.p.rapidapi.com/shorten",
     headers: {
       "content-type": "application/x-www-form-urlencoded",
-      "X-RapidAPI-Key": "74ce58cb69mshbbaf506e91ced2cp1d50e8jsnb8420dafcede",
+      "X-RapidAPI-Key": process.env.API_KEY,
       "X-RapidAPI-Host": "url-shortener-service.p.rapidapi.com",
     },
     data: encodedParams,
